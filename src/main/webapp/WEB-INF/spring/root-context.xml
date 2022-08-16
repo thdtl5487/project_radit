@@ -4,5 +4,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<!-- log4jdbc를 이용하는 경우 아래의 JDBC 드라이버와 URL 정보 수정해 줍니다 -->
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl"></property>		
+		
+		<!-- 아래는 log4jdbc를 이용하지 않은 경우 JDBC 드라이버와 URL 정보 설정 내용입니다. -->
+		<!--  
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+		 -->		
+			
+		<property name="username" value="mini_admin"></property>
+		<property name="password" value="mini_admin"></property>
+	</bean>
+	
+	
 		
 </beans>
